@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import harshitaNew from '@/assets/harshita-new.jpg';
 import harshitaImg1 from '@/assets/harshita-1.jpg';
-import harshitaImg2 from '@/assets/harshita-2.jpg';
-import harshitaImg3 from '@/assets/harshita-3.jpg';
 
 interface CarouselImage {
   id: number;
@@ -15,26 +14,29 @@ interface CarouselImage {
 const carouselImages: CarouselImage[] = [
   {
     id: 1,
-    src: harshitaImg1,
-    alt: "Harshita Portrait 1",
-    title: "Radiant Beauty"
+    src: harshitaNew,
+    alt: "Harshita - Beautiful woman in the universe",
+    title: "Divine Beauty"
   },
   {
     id: 2,
-    src: harshitaImg2,
-    alt: "Harshita Portrait 2", 
-    title: "Graceful Elegance"
-  },
-  {
-    id: 3,
-    src: harshitaImg3,
-    alt: "Harshita Portrait 3",
-    title: "Pure Charm"
+    src: harshitaImg1,
+    alt: "Harshita Portrait", 
+    title: "Radiant Grace"
   }
 ];
 
 export const ImageCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isBlurred, setIsBlurred] = useState(true);
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
+  };
 
   const toggleBlur = () => {
     setIsBlurred(!isBlurred);
@@ -49,8 +51,8 @@ export const ImageCarousel = () => {
           onClick={toggleBlur}
         >
           <img
-            src={harshitaImg1}
-            alt="Harshita - Beautiful woman in the universe"
+            src={carouselImages[currentIndex].src}
+            alt={carouselImages[currentIndex].alt}
             className={`w-full h-full object-cover transition-all duration-700 ${
               isBlurred ? 'blur-[20px] scale-110' : 'blur-none scale-100'
             }`}
@@ -73,13 +75,47 @@ export const ImageCarousel = () => {
             </div>
           )}
         </div>
+
+        {/* Navigation Arrows */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={prevImage}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 border-0 text-white w-12 h-12 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={nextImage}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 border-0 text-white w-12 h-12 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
       </div>
 
       {/* Image Title */}
       <div className="text-center mt-6">
         <h3 className="text-2xl font-light text-mystery-text animate-fade-in">
-          Radiant Beauty
+          {carouselImages[currentIndex].title}
         </h3>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex justify-center mt-8 space-x-3">
+        {carouselImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex
+                ? 'bg-mystery-accent shadow-lg animate-glow'
+                : 'bg-mystery-border hover:bg-mystery-text-muted'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
