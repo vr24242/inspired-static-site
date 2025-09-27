@@ -1,12 +1,25 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { HeroSection } from '@/components/HeroSection';
+import { ImageCarousel } from '@/components/ImageCarousel';
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-mystery-bg">
+      {/* Hero Section */}
+      <HeroSection />
+      
+      {/* Main Content */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <ImageCarousel />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 text-center border-t border-mystery-border">
+        <p className="text-mystery-text-muted text-sm">
+          A tribute to timeless beauty and elegance
+        </p>
+      </footer>
     </div>
   );
 };

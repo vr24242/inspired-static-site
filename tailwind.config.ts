@@ -57,6 +57,14 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Mystery theme colors
+        "mystery-bg": "hsl(var(--mystery-bg))",
+        "mystery-surface": "hsl(var(--mystery-surface))",
+        "mystery-border": "hsl(var(--mystery-border))",
+        "mystery-text": "hsl(var(--mystery-text))",
+        "mystery-text-muted": "hsl(var(--mystery-text-muted))",
+        "mystery-accent": "hsl(var(--mystery-accent))",
+        "mystery-glow": "hsl(var(--mystery-glow))",
       },
       borderRadius: {
         lg: "var(--radius)",
