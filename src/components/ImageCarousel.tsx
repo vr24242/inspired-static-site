@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import mysteryImage from '@/assets/mystery-portrait.jpg';
+import harshitaImg1 from '@/assets/harshita-1.jpg';
+import harshitaImg2 from '@/assets/harshita-2.jpg';
+import harshitaImg3 from '@/assets/harshita-3.jpg';
 
 interface CarouselImage {
   id: number;
@@ -13,21 +15,21 @@ interface CarouselImage {
 const carouselImages: CarouselImage[] = [
   {
     id: 1,
-    src: mysteryImage,
-    alt: "Mystery Portrait 1",
-    title: "The Enigmatic Beauty"
+    src: harshitaImg1,
+    alt: "Harshita Portrait 1",
+    title: "Radiant Beauty"
   },
   {
     id: 2,
-    src: mysteryImage,
-    alt: "Mystery Portrait 2", 
-    title: "Ethereal Grace"
+    src: harshitaImg2,
+    alt: "Harshita Portrait 2", 
+    title: "Graceful Elegance"
   },
   {
     id: 3,
-    src: mysteryImage,
-    alt: "Mystery Portrait 3",
-    title: "Timeless Elegance"
+    src: harshitaImg3,
+    alt: "Harshita Portrait 3",
+    title: "Pure Charm"
   }
 ];
 

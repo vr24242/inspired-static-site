@@ -8,24 +8,17 @@ export const HeroSection = () => {
       </div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto">
-        {/* Alert Notice */}
-        <div className="mb-12 animate-fade-in">
-          <p className="text-lg md:text-xl text-mystery-text-muted font-light tracking-wide">
-            Due to the overwhelming attention on this website, I had to blur the photo.
-          </p>
-        </div>
-
         {/* Main Title */}
-        <div className="mb-16 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+        <div className="mb-16 animate-fade-in">
           <h1 className="mb-8 leading-tight">
             This website is to verify that{' '}
             <span className="text-mystery-accent font-normal">
-              Krithika
+              Harshita
             </span>{' '}
             is indeed the
             <br className="hidden sm:block" />
             <span className="block mt-2 bg-gradient-to-r from-mystery-accent to-mystery-glow bg-clip-text text-transparent">
-              prettiest woman in the world
+              beautiful woman in the whole universe
             </span>
           </h1>
         </div>
