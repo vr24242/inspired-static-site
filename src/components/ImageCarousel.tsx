@@ -34,36 +34,23 @@ const carouselImages: CarouselImage[] = [
 ];
 
 export const ImageCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isBlurred, setIsBlurred] = useState(true);
-
-  const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + carouselImages.length) % carouselImages.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
 
   const toggleBlur = () => {
     setIsBlurred(!isBlurred);
   };
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative w-full max-w-2xl mx-auto">
       {/* Main Image Container */}
-      <div className="relative aspect-[4/3] overflow-hidden rounded-lg mystery-border">
+      <div className="relative aspect-[3/4] overflow-hidden rounded-lg mystery-border">
         <div 
           className="relative w-full h-full group cursor-pointer"
           onClick={toggleBlur}
         >
           <img
-            src={carouselImages[currentIndex].src}
-            alt={carouselImages[currentIndex].alt}
+            src={harshitaImg1}
+            alt="Harshita - Beautiful woman in the universe"
             className={`w-full h-full object-cover transition-all duration-700 ${
               isBlurred ? 'blur-[20px] scale-110' : 'blur-none scale-100'
             }`}
@@ -86,47 +73,13 @@ export const ImageCarousel = () => {
             </div>
           )}
         </div>
-
-        {/* Navigation Arrows */}
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={prevImage}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 border-0 text-white w-12 h-12 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </Button>
-
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={nextImage}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-black/40 border-0 text-white w-12 h-12 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-110"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </Button>
       </div>
 
       {/* Image Title */}
       <div className="text-center mt-6">
         <h3 className="text-2xl font-light text-mystery-text animate-fade-in">
-          {carouselImages[currentIndex].title}
+          Radiant Beauty
         </h3>
-      </div>
-
-      {/* Pagination Dots */}
-      <div className="flex justify-center mt-8 space-x-3">
-        {carouselImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex
-                ? 'bg-mystery-accent shadow-lg animate-glow'
-                : 'bg-mystery-border hover:bg-mystery-text-muted'
-            }`}
-          />
-        ))}
       </div>
     </div>
   );
